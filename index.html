@@ -39,7 +39,7 @@
       padding: max(24px, env(safe-area-inset-top)) 0 max(40px, env(safe-area-inset-bottom));
     }
 
-    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .topbar { display: flex; align-items: center; }
 
     .brand-lockup { display: inline-flex; align-items: center; gap: 11px; color: inherit; text-decoration: none; }
     .brand-mark { width: 43px; height: 43px; object-fit: contain; image-rendering: pixelated; flex: 0 0 auto; }
@@ -57,29 +57,7 @@
     .wordmark span { color: #6676e8; }
     .signature { margin-top: 6px; color: #777e98; font-family: Georgia, "Times New Roman", serif; font-size: 11px; font-style: italic; letter-spacing: .035em; }
 
-    .status {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: #727a96;
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 10px;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-    }
-
-    .status i { width: 8px; height: 8px; border-radius: 50%; background: #ff88c7; box-shadow: 0 0 13px rgba(255,136,199,.7); }
-
-    .hero { padding: clamp(68px, 12vw, 116px) 0 42px; text-align: center; }
-
-    .eyebrow {
-      margin: 0 0 12px;
-      color: #6876d9;
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .2em;
-    }
+    .hero { padding: clamp(62px, 11vw, 96px) 0 42px; text-align: center; }
 
     h1 {
       margin: 0;
@@ -92,13 +70,11 @@
       color: transparent;
     }
 
-    .subtitle { max-width: 500px; margin: 18px auto 0; color: var(--muted); font-size: 15px; line-height: 1.8; }
-
     .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
     .location {
       position: relative;
-      min-height: 280px;
+      min-height: 240px;
       padding: 28px;
       display: flex;
       flex-direction: column;
@@ -149,7 +125,6 @@
 
     .pin { margin-top: 28px; font-size: 42px; filter: drop-shadow(0 8px 16px rgba(73,66,124,.13)); }
     .location h2 { margin: 0 0 8px; font-size: clamp(30px, 7vw, 44px); letter-spacing: -.045em; }
-    .location p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
 
     .enter {
       display: flex;
@@ -167,14 +142,10 @@
     .arrow { font-size: 20px; transition: transform .2s ease; }
     .location:hover .arrow { transform: translateX(5px); }
 
-    .footer { margin-top: 28px; color: #9297aa; text-align: center; font-size: 10px; letter-spacing: .08em; }
-
     @media (max-width: 620px) {
-      .status { display: none; }
       .hero { padding: 64px 0 32px; text-align: left; }
-      .subtitle { margin-left: 0; }
       .location-grid { grid-template-columns: 1fr; }
-      .location { min-height: 238px; }
+      .location { min-height: 210px; }
     }
 
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
@@ -187,13 +158,10 @@
         <img class="brand-mark" src="assets/liqing-mark.png" alt="">
         <span class="brand-copy"><span class="wordmark">厘清<span>智能</span></span><span class="signature">Let Delicious Flow.</span></span>
       </a>
-      <div class="status"><i></i>Lunch router · Beijing</div>
     </header>
 
     <section class="hero">
-      <p class="eyebrow">STEP 01 · CHOOSE YOUR ZONE</p>
       <h1>今天去哪儿吃？</h1>
-      <p class="subtitle">先选择饭区，再把“吃什么”交给随机算法。不同地点拥有各自的餐厅清单与风格。</p>
     </section>
 
     <section class="location-grid" aria-label="选择饭区">
@@ -204,7 +172,6 @@
         </div>
         <div class="card-bottom">
           <h2>五道口</h2>
-          <p>蓝紫粉饭局控制台<br>随机、分类、排除都已接入</p>
           <div class="enter"><span>进入五道口</span><span class="arrow">→</span></div>
         </div>
       </a>
@@ -216,13 +183,10 @@
         </div>
         <div class="card-bottom">
           <h2>新中关</h2>
-          <p>暖色饭局控制台<br>火锅、烧肉、寿司都已接入</p>
           <div class="enter"><span>进入新中关</span><span class="arrow">→</span></div>
         </div>
       </a>
     </section>
-
-    <p class="footer">LIQING INTELLIGENCE · LUNCH ROUTER</p>
   </main>
 </body>
 </html>
