@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fff8ee">
+  <meta name="description" content="厘清智能魏公村饭局页面，正在开发中。">
+  <title>魏公村 · 开发中</title>
+  <style>
+    :root {
+      --ink: #38271f;
+      --muted: #8c7468;
+      --orange: #ef8e4e;
+      --coral: #f17470;
+      --gold: #f7c85d;
+      --line: rgba(147,92,58,.16);
+    }
+
+    * { box-sizing: border-box; }
+    html { min-height: 100%; background: #fff8ee; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--ink);
+      font-family: "SF Pro Display", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+      background:
+        linear-gradient(rgba(179,114,68,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(179,114,68,.035) 1px, transparent 1px),
+        radial-gradient(circle at 8% 4%, rgba(255,194,113,.42), transparent 28rem),
+        radial-gradient(circle at 92% 38%, rgba(255,137,121,.27), transparent 28rem),
+        radial-gradient(circle at 58% 96%, rgba(255,220,137,.34), transparent 30rem),
+        #fff8ee;
+      background-size: 36px 36px, 36px 36px, auto, auto, auto, auto;
+    }
+
+    .shell {
+      width: min(100% - 28px, 680px);
+      margin: 0 auto;
+      padding: max(24px, env(safe-area-inset-top)) 0 max(40px, env(safe-area-inset-bottom));
+    }
+
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+
+    .wordmark {
+      color: #2f211c;
+      text-decoration: none;
+      font-size: clamp(27px, 6vw, 38px);
+      font-weight: 950;
+      letter-spacing: -.075em;
+      line-height: 1;
+    }
+
+    .wordmark span { color: var(--coral); }
+
+    .back {
+      padding: 9px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #8a6b5b;
+      background: rgba(255,255,255,.55);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .hero { padding: clamp(66px, 12vw, 100px) 0 26px; text-align: center; }
+    .symbol { width: 90px; height: 90px; margin: 0 auto 24px; display: grid; place-items: center; border: 1px solid rgba(239,142,78,.28); border-radius: 28px; background: linear-gradient(145deg, rgba(255,221,156,.9), rgba(255,183,164,.72)); box-shadow: 0 18px 42px rgba(184,103,65,.15); font-size: 42px; transform: rotate(-4deg); }
+
+    .eyebrow { margin: 0 0 10px; color: #c96c42; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; font-weight: 900; letter-spacing: .18em; }
+    h1 { margin: 0; font-size: clamp(42px, 10vw, 64px); line-height: 1; letter-spacing: -.055em; }
+    .subtitle { margin: 16px auto 0; color: var(--muted); font-size: 14px; line-height: 1.8; }
+
+    .progress-card {
+      margin-top: 30px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: rgba(255,255,255,.7);
+      box-shadow: 0 24px 64px rgba(133,78,48,.13);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .progress-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+    .progress-head h2 { margin: 0; font-size: 17px; }
+    .progress-head span { color: #b1785c; font-size: 11px; }
+
+    .bar { height: 10px; padding: 2px; border: 1px solid rgba(239,142,78,.2); border-radius: 999px; background: rgba(255,237,213,.75); }
+    .bar i { display: block; width: 28%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--gold), var(--orange), var(--coral)); box-shadow: 0 0 15px rgba(241,116,112,.2); }
+
+    .future-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
+    .future { padding: 16px 9px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,249,239,.7); text-align: center; }
+    .future b { display: block; margin: 7px 0 3px; font-size: 12px; }
+    .future small { color: #a38777; font-size: 9px; }
+
+    .notice { margin: 16px 0 0; padding: 14px; border-radius: 16px; color: #936247; background: linear-gradient(120deg, rgba(255,220,153,.42), rgba(255,191,177,.36)); font-size: 12px; line-height: 1.7; text-align: center; }
+
+    .primary { width: 100%; min-height: 56px; margin-top: 16px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.7); border-radius: 18px; color: #fff; background: linear-gradient(110deg, #f2bd59, #ef8e4e 52%, #f17470); box-shadow: 0 13px 34px rgba(205,112,69,.22); text-decoration: none; font-size: 15px; font-weight: 900; }
+
+    .footer { margin: 22px 0 0; color: #b49b8c; text-align: center; font-size: 10px; letter-spacing: .08em; }
+
+    @media (max-width: 430px) {
+      .future-grid { grid-template-columns: 1fr; }
+      .future { display: flex; align-items: center; gap: 10px; padding: 12px 15px; text-align: left; }
+      .future b { margin: 0; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="wordmark" href="index.html">厘清<span>智能</span></a>
+      <a class="back" href="index.html">← 切换饭区</a>
+    </header>
+
+    <section class="hero">
+      <div class="symbol" aria-hidden="true">🍊</div>
+      <p class="eyebrow">WEIGONGCUN · WARMING UP</p>
+      <h1>魏公村<br>正在备餐</h1>
+      <p class="subtitle">这里会拥有一套独立的餐厅清单。<br>功能和五道口相同，但答案会完全不同。</p>
+    </section>
+
+    <section class="progress-card" aria-label="开发进度">
+      <div class="progress-head">
+        <h2>饭局数据库准备中</h2>
+        <span>进度 28%</span>
+      </div>
+      <div class="bar" aria-hidden="true"><i></i></div>
+
+      <div class="future-grid">
+        <div class="future"><span>🎲</span><div><b>随机抽取</b><small>功能规划完成</small></div></div>
+        <div class="future"><span>🗂️</span><div><b>分类筛选</b><small>等待餐厅清单</small></div></div>
+        <div class="future"><span>🚫</span><div><b>排除选项</b><small>功能规划完成</small></div></div>
+      </div>
+
+      <p class="notice">魏公村的餐厅还没有录入。等你想好吃什么，我们再把这里正式点亮。</p>
+    </section>
+
+    <a class="primary" href="index.html">返回饭区选择</a>
+    <p class="footer">LIQING INTELLIGENCE · COMING SOON</p>
+  </main>
+</body>
+</html>
