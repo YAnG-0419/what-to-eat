@@ -41,9 +41,13 @@
 
     .topbar { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
 
+    .brand-lockup { display: inline-flex; align-items: center; gap: 11px; color: inherit; text-decoration: none; }
+    .brand-mark { width: 43px; height: 43px; object-fit: contain; image-rendering: pixelated; flex: 0 0 auto; }
+    .brand-copy { display: flex; flex-direction: column; align-items: flex-start; }
+
     .wordmark {
+      display: block;
       color: #11172a;
-      text-decoration: none;
       font-size: clamp(29px, 6vw, 42px);
       font-weight: 950;
       letter-spacing: -.075em;
@@ -51,6 +55,7 @@
     }
 
     .wordmark span { color: #6676e8; }
+    .signature { margin-top: 6px; color: #777e98; font-family: Georgia, "Times New Roman", serif; font-size: 11px; font-style: italic; letter-spacing: .035em; }
 
     .status {
       display: flex;
@@ -124,7 +129,7 @@
     }
 
     .wudaokou::before { background: radial-gradient(circle, rgba(127,160,255,.42), rgba(194,153,255,.12) 62%, transparent 68%); }
-    .weigongcun::before { background: radial-gradient(circle, rgba(255,188,112,.5), rgba(255,143,125,.12) 62%, transparent 68%); }
+    .xinzhongguan::before { background: radial-gradient(circle, rgba(255,188,112,.5), rgba(255,143,125,.12) 62%, transparent 68%); }
 
     .card-top, .card-bottom { position: relative; z-index: 1; }
 
@@ -140,7 +145,7 @@
     }
 
     .wudaokou .tag { color: #586ad0; background: rgba(109,129,232,.11); }
-    .weigongcun .tag { color: #bd6c3d; background: rgba(255,167,105,.14); }
+    .xinzhongguan .tag { color: #bd6c3d; background: rgba(255,167,105,.14); }
 
     .pin { margin-top: 28px; font-size: 42px; filter: drop-shadow(0 8px 16px rgba(73,66,124,.13)); }
     .location h2 { margin: 0 0 8px; font-size: clamp(30px, 7vw, 44px); letter-spacing: -.045em; }
@@ -158,7 +163,7 @@
     }
 
     .wudaokou .enter { color: #6570cf; }
-    .weigongcun .enter { color: #c56f41; }
+    .xinzhongguan .enter { color: #c56f41; }
     .arrow { font-size: 20px; transition: transform .2s ease; }
     .location:hover .arrow { transform: translateX(5px); }
 
@@ -178,7 +183,10 @@
 <body>
   <main class="shell">
     <header class="topbar">
-      <a class="wordmark" href="index.html">厘清<span>智能</span></a>
+      <a class="brand-lockup" href="index.html" aria-label="厘清智能首页">
+        <img class="brand-mark" src="assets/liqing-mark.png" alt="">
+        <span class="brand-copy"><span class="wordmark">厘清<span>智能</span></span><span class="signature">Let Delicious Flow.</span></span>
+      </a>
       <div class="status"><i></i>Lunch router · Beijing</div>
     </header>
 
@@ -201,15 +209,15 @@
         </div>
       </a>
 
-      <a class="location weigongcun" href="weigongcun.html">
+      <a class="location xinzhongguan" href="xinzhongguan.html">
         <div class="card-top">
-          <span class="tag">◌ 开发中 · 暖色预告</span>
-          <div class="pin" aria-hidden="true">✦</div>
+          <span class="tag">● 已上线 · 7 个选择</span>
+          <div class="pin" aria-hidden="true">⌖</div>
         </div>
         <div class="card-bottom">
-          <h2>魏公村</h2>
-          <p>餐厅清单正在准备<br>未来拥有同样的抽取功能</p>
-          <div class="enter"><span>看看开发进度</span><span class="arrow">→</span></div>
+          <h2>新中关</h2>
+          <p>暖色饭局控制台<br>火锅、烧肉、寿司都已接入</p>
+          <div class="enter"><span>进入新中关</span><span class="arrow">→</span></div>
         </div>
       </a>
     </section>
